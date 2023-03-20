@@ -6,22 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Analog_IC_Learning_Notes_of_Part_One_Devices_And_Bias | HexoBlog</title>
+  <title>Band_Gap_Reference | HexoBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一.无源器件与有源器件(Passive_and_Active_device)1.Passive_device种类(Sorts)：电阻(Resistance)、电容(Capacitance)、电感(Inductance)(Impedance)特点(characteristics)：简单(Simple);两端器件(Two terminals);线性(linear);不需要偏置工作(Biasing un">
+  <meta name="description" content="1.Structure：Voltage Model (I-V transition)and Current Model(V-I transition). 2.The current and the voltage that is independent with temperature and supply voltage, also insensitivity with the fabricat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Analog_IC_Learning_Notes_of_Part_One_Devices_And_Bias">
-<meta property="og:url" content="http://example.com/2023/03/15/Analog-IC-Learning-Notes-of-Part-One-Devices-And-Bias/index.html">
+<meta property="og:title" content="Band_Gap_Reference">
+<meta property="og:url" content="http://example.com/2023/03/20/Analog-IC-Learning-Notes-of-Part-One-BGR/index.html">
 <meta property="og:site_name" content="HexoBlog">
-<meta property="og:description" content="一.无源器件与有源器件(Passive_and_Active_device)1.Passive_device种类(Sorts)：电阻(Resistance)、电容(Capacitance)、电感(Inductance)(Impedance)特点(characteristics)：简单(Simple);两端器件(Two terminals);线性(linear);不需要偏置工作(Biasing un">
+<meta property="og:description" content="1.Structure：Voltage Model (I-V transition)and Current Model(V-I transition). 2.The current and the voltage that is independent with temperature and supply voltage, also insensitivity with the fabricat">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/.com//high-swing-cascode-cm-1.png">
-<meta property="og:image" content="http://example.com/.com//high-swing-cascode-cm-2.png">
-<meta property="article:published_time" content="2023-03-15T12:58:22.000Z">
-<meta property="article:modified_time" content="2023-03-15T14:00:50.529Z">
+<meta property="og:image" content="http://example.com/.com//cascode-CM-BGR.png">
+<meta property="og:image" content="http://example.com/.com//op-based-BGR.png">
+<meta property="og:image" content="http://example.com/.com//vref-1.png">
+<meta property="og:image" content="http://example.com/.com//current-refrence.png">
+<meta property="article:published_time" content="2023-03-20T05:46:33.000Z">
+<meta property="article:modified_time" content="2023-03-20T06:09:32.310Z">
 <meta property="article:author" content="Juneday-mpc">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//high-swing-cascode-cm-1.png">
+<meta name="twitter:image" content="http://example.com/.com//cascode-CM-BGR.png">
   
     <link rel="alternative" href="/atom.xml" title="HexoBlog" type="application/atom+xml">
   
@@ -145,39 +147,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Analog-IC-Learning-Notes-of-Part-One-Devices-And-Bias" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Analog-IC-Learning-Notes-of-Part-One-BGR" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Analog_IC_Learning_Notes_of_Part_One_Devices_And_Bias
+      Band_Gap_Reference
     </h1>
   
 
         
-        <a href="/2023/03/15/Analog-IC-Learning-Notes-of-Part-One-Devices-And-Bias/" class="archive-article-date">
-  	<time datetime="2023-03-15T12:58:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-15</time>
+        <a href="/2023/03/20/Analog-IC-Learning-Notes-of-Part-One-BGR/" class="archive-article-date">
+  	<time datetime="2023-03-20T05:46:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="一-无源器件与有源器件-Passive-and-Active-device"><a href="#一-无源器件与有源器件-Passive-and-Active-device" class="headerlink" title="一.无源器件与有源器件(Passive_and_Active_device)"></a>一.无源器件与有源器件(Passive_and_Active_device)</h5><h6 id="1-Passive-device"><a href="#1-Passive-device" class="headerlink" title="1.Passive_device"></a>1.Passive_device</h6><p>种类(Sorts)：电阻(Resistance)、电容(Capacitance)、电感(Inductance)(Impedance)<br>特点(characteristics)：简单(Simple);两端器件(Two terminals);线性(linear);不需要偏置工作(Biasing unnecessary);给有源器件提供工作点(To provide active devices operation point(Biasing))。</p>
-<h6 id="2-Active-device"><a href="#2-Active-device" class="headerlink" title="2.Active_device"></a>2.Active_device</h6><p>种类(Sorts)：二极管(Diode)、三极管(Bipolar transistor)、场效应晶体管(MOSFET);<br>特点(characteristics)：除二极管外，至少三个端口(Except diode ,three or more terminals(why?))、需要静态偏置(Static Bias necessary)、通常非线性(Generally nonlinear)、只有小信号时在数学上近似线性(linear only under small signal approximation(Math))。<br>Notes：<br>1).两端器件的二极管没有放大能力；<br>2).三端有源器件有放大能力的原因是因为可以形成两个回路；<br>3).只有超过两端器件的有源器件才能被用于放大，并有严格的线性放大的条件。</p>
-<h6 id="3-Linear-Capacitance-and-Inductance"><a href="#3-Linear-Capacitance-and-Inductance" class="headerlink" title="3.Linear_Capacitance_and_Inductance"></a>3.Linear_Capacitance_and_Inductance</h6><p>1).电容与电感两者均为储能元件，但是电容容易集成，电感集成困难。<br>2).电容与电感两者为对称元件，功能上表现为对偶特性。<br>3).电容上的电压不能突变，有电压纹波；电感上的电流不能突变，有电流纹波。<br>4).IC中电容不可或缺，是电路频率特性、瞬态特性、稳定性问题(相移)的根源。<br>5).应用：时域大信号：Start-up、Pulse OSC、Delay、DC separator；<br>         频域交流小信号：Sinusoid OSC、Loop compensation、Filter。</p>
-<h5 id="二．二极管-Diode"><a href="#二．二极管-Diode" class="headerlink" title="二．二极管(Diode)"></a>二．二极管(Diode)</h5><p>正向导通(电压近似钳位)，反向截至直至击穿。<br>反向饱和电流与反偏电压无关，随结面积增大而增大。<br>应用：<br>1．直流：隔离，稳压，钳位，电平移位；<br>2．交流：低阻高频极点、交流短路、结电容变容效应；<br>拓展：MOS diode。</p>
-<h5 id="三．双极型晶体管-Bipolar-transistor"><a href="#三．双极型晶体管-Bipolar-transistor" class="headerlink" title="三．双极型晶体管(Bipolar_transistor)"></a>三．双极型晶体管(Bipolar_transistor)</h5><p>两个背靠背PN结，发射结正偏，集电结反偏。<br>三端口，非线性元件。<br>其电流性质本身仍是PN结电流，发射结提供电流IE，基区复合形成IB，集电结反偏按比例收取形成IC。发射结正偏，有电流IE注入；集电结正偏或者零偏，收集系数随电压线性变化，导致IC随反偏电压线性变化；集电结反偏，收集系数逐渐趋近于饱和1，饱和收集系数导致集电极电流IC也饱和。</p>
-<h5 id="四．场效应晶体管-MOSFET"><a href="#四．场效应晶体管-MOSFET" class="headerlink" title="四．场效应晶体管(MOSFET)"></a>四．场效应晶体管(MOSFET)</h5><p>四端器件:Drain、Source、Gate、Body；<br>特点：天然的反偏PN结(衬底)；纵向(平行板电容，包括氧化层电容和沟道电容两部分)；横向对称结构。<br>原理:栅压(纵向电场)感应电荷，形成反型沟道，沟道电阻(开启时)；漏压(横向电场)驱动沟道电阻，形成沟道电流；两维电场。<br>本质：强反型下形成沟道电流，修正的欧姆定律成立；弱反型下为扩散电流。<br>性质：漂移电流线性律(饱和限流或恒流),扩散电流指数律(进入或成为非线性)。</p>
-<h6 id="1-直流特性-DC-Properties"><a href="#1-直流特性-DC-Properties" class="headerlink" title="1.直流特性(DC_Properties)"></a>1.直流特性(DC_Properties)</h6><p>1).影响因素：工艺或增益参数(Process&#x2F;Gain factor)、宽长比(Width-length ratio)、过驱动电压(Overdrive Voltage)、阈值电压(Threshold Voltage)。<br>2).衬底偏置效应(Substrate Biasing Effect):源体电压大于0会导致Vth的增加，产生额外的阈值电压增量，多出衬底偏置系数(Substrate Biasing Effect)。<br>3).沟道长度调制效应(Channel length Modulation):VDS增加—&gt;沟道夹断(pinch off)—&gt;引入沟道调制系数和厄利电压(Early Voltage)—&gt;实际电流受到VGS和VDS的控制—&gt;电流从线性变为修正平方律关系—&gt;大信号表现出强烈的非线性。<br>4).工作区域(Operation region):线性和饱和。<br>5).饱和区电流公式不适合亚阈值条件下，该条件下有漂移电流和扩散电流，且电流大小与VGS呈指数关系。<br>6).VGSVTH,0到-100mv亚阈值，200mv以上为饱和，-100mv到200mv为过渡区。</p>
-<h6 id="2-交流特性-AC-Properties"><a href="#2-交流特性-AC-Properties" class="headerlink" title="2.交流特性(AC_Properties)"></a>2.交流特性(AC_Properties)</h6><p>1).小信号条件下描述栅压和漏压对电流的控制能力，引入跨导gm和电导gd参数，进行对应的线性叠加，且gm远大于gd；小信号下gm和gd恒定，大信号下一定产生非线性失真。<br>2).恒流源MOS电阻很大，二极管接法的恒压源MOS电阻很小。<br>3).小尺寸，L减少，沟道电阻减少，增益下；但会使栅源电容减少，特征频率增大。<br>4).复合管: 一个MOS管拆分为若干管的并联或串联,图形尺寸效应: W&#x2F;L相同的复合管和单管性能上有差异！W&#x2F;L相同,但W、L不同的单管有差异;</p>
-<h5 id="五．偏置电路-Bias-Circuit"><a href="#五．偏置电路-Bias-Circuit" class="headerlink" title="五．偏置电路(Bias_Circuit)"></a>五．偏置电路(Bias_Circuit)</h5><p>产生稳定的参考电流或参考电压，给电路提供稳定的静态工作点。有单个分支的电路提供最简单的偏置，多个分支成对提供偏置(线性或者非线性电流镜(Current Mirror))。</p>
-<h6 id="1-单路偏置-Simple-Branch"><a href="#1-单路偏置-Simple-Branch" class="headerlink" title="1.单路偏置(Simple_Branch)"></a>1.单路偏置(Simple_Branch)</h6><p>R+R、R+MOS diode、MOS diode +MOS diode、Coupled。</p>
-<h6 id="2-多路偏置-Multi-Branchs"><a href="#2-多路偏置-Multi-Branchs" class="headerlink" title="2.多路偏置(Multi-Branchs)"></a>2.多路偏置(Multi-Branchs)</h6><p>NMOS电流镜和PMOS电流镜成对获得一个除原点以外的交点，所以至少两个电流镜中的一个电流镜是非线性电流镜，每个支路都是高阻抗的电流源和低阻抗的电压源组成，如果两个电流镜都是线性电流镜只有两种结果：其一是只有原点一个交点，其二是有无限的交点(NMOS current mirror and PMOS current mirror coupled(biased) for each others to obtain only one intersection point other than zero(static point). Thus, at least one of the two CM should be given as NL CM.one branch: high impedance and low impedance. If both are L-CM, two situation happen: one hand, on intersection point except original point.)</p>
-<h6 id="3-线性电流镜的特征-两电流镜的VGS相同。"><a href="#3-线性电流镜的特征-两电流镜的VGS相同。" class="headerlink" title="3.线性电流镜的特征:两电流镜的VGS相同。"></a>3.线性电流镜的特征:两电流镜的VGS相同。</h6><h6 id="4-线性电流镜进行电流传输，非线性电流镜进行电流定义。"><a href="#4-线性电流镜进行电流传输，非线性电流镜进行电流定义。" class="headerlink" title="4.线性电流镜进行电流传输，非线性电流镜进行电流定义。"></a>4.线性电流镜进行电流传输，非线性电流镜进行电流定义。</h6><h6 id="5-偏置电路有两种：-VBE1-VBE2-x2F-R-微电流偏置-、VGS-x2F-R-大电流控制-或者-VGS1-VGS2-x2F-R-小电流偏置-。"><a href="#5-偏置电路有两种：-VBE1-VBE2-x2F-R-微电流偏置-、VGS-x2F-R-大电流控制-或者-VGS1-VGS2-x2F-R-小电流偏置-。" class="headerlink" title="5.偏置电路有两种：(VBE1-VBE2)&#x2F;R(微电流偏置)、VGS&#x2F;R(大电流控制)或者(VGS1-VGS2)&#x2F;R(小电流偏置)。"></a>5.偏置电路有两种：(VBE1-VBE2)&#x2F;R(微电流偏置)、VGS&#x2F;R(大电流控制)或者(VGS1-VGS2)&#x2F;R(小电流偏置)。</h6><h6 id="6-非线性电流镜中的R需要放在电压源连接的MOS的斜对角线方向-即电流源MOS的下方-，以保证电路可以正常启动。"><a href="#6-非线性电流镜中的R需要放在电压源连接的MOS的斜对角线方向-即电流源MOS的下方-，以保证电路可以正常启动。" class="headerlink" title="6.非线性电流镜中的R需要放在电压源连接的MOS的斜对角线方向(即电流源MOS的下方)，以保证电路可以正常启动。"></a>6.非线性电流镜中的R需要放在电压源连接的MOS的斜对角线方向(即电流源MOS的下方)，以保证电路可以正常启动。</h6><h6 id="7-启动电路-start-up"><a href="#7-启动电路-start-up" class="headerlink" title="7.启动电路(start_up)"></a>7.启动电路(start_up)</h6><p>在上电的瞬间是有效的(Effective during power transient);低压或者没有静态电流(Low power or zero static current);可靠，需要多次启动(Reliability, multi start up needed);不能打断偏置电路的正常工作(Do not interrupt biasing circuit in normal operation region)。</p>
-<h5 id="六．Cascode电路"><a href="#六．Cascode电路" class="headerlink" title="六．Cascode电路"></a>六．Cascode电路</h5><p>1.多层cascode结构会以损失输出摆幅为条件换取输出阻抗的大幅提高，调制电路结构(用运放接在MOS的栅极)可以保持较大的输出摆幅，但是电流的消耗会大幅增加(For multi-layer cascode output impedance boost is achieved at lost of output swing, so regulated cascode is better in saving output swing, but current consumption is significantly increased.)。<br>2.多层cascode可以通过改变栅极的连接位置提高输出摆幅。如图，V1为两倍过驱动电压，V2为两倍过驱动电压加VTH。<img src="/.com//high-swing-cascode-cm-1.png" alt="high-swing-cascode-1"><img src="/.com//high-swing-cascode-cm-2.png" alt="high-swing-cascode-2"></p>
+        <p>1.Structure：Voltage Model (I-V transition)and Current Model(V-I transition).</p>
+<p>2.The current and the voltage that is independent with temperature and supply voltage, also insensitivity with the fabrication process, is called as voltage or current reference, usually known as PVT Stability.</p>
+<p>3.Process stability: Reduce correlation factors of process(structure, Modify and adjustment).</p>
+<p>4.Voltage stability: Bias.</p>
+<p>5.Temperature stability: Compensation.</p>
+<p>6.The supply voltage region is between VDD.MIN and VDD.MAX. The VDD.MIN is decided by structure and process(threshold).The VDD.MAX is decided by the breakdown voltage of chip.</p>
+<p>7.T increase  VTHn， VTHp and VBE decrease.</p>
+<p>8.∆VBE&#x3D;VTlnN, (∂VBE)&#x2F;∂T&#x3D;k&#x2F;qlnN(constant), (∂VT)&#x2F;∂T&#x3D;k&#x2F;q&#x3D;(kT0)&#x2F;(qT0 )&#x3D;VT0&#x2F;T0&#x3D;0.026V&#x2F;300K≈0.087mV&#x2F;K(exact), N&#x3D;(I1S2)&#x2F;(I2S1 ).PTAT</p>
+<p>9.VBE(T)&#x3D;VG(T)+T&#x2F;T0(VBE0-VG0)-(η-α)VTln(T&#x2F;T0)VG(T),VG(T) is constant and about the material, such as the VG(T0) of silicon is 1.12V. T&#x2F;T0(VBE0-VG0) is the linear term of temperature, VBE0-VG0 is the value of normal temperature. (η-α)VTln(T&#x2F;T0)VG(T) is the unlinear term of temperature. VBE0≈600mV@(T&#x3D;300K) current biasing related. (∂VBE)&#x2F;∂T&#x3D;(1&#x2F;T0)(VBE0-VG0)-((η-α)&#x2F;T)VT(lnT&#x2F;T0+1)≈-2mV&#x2F;K(inaccurrate), ((η-α)&#x2F;T)VT has nothing to do with Temperature, (lnT&#x2F;T0+1) is weakly correlated with Temperature and can neglect. CTAT</p>
+<p>10.Vref&#x3D;VBE+kVT, k&#x3D;|((∂VBE)&#x2F;∂T)&#x2F;((∂VT)&#x2F;∂T)|≈(2mV&#x2F;K)&#x2F;(0.087mV&#x2F;K)≈23 , Vref(T0)&#x3D;VBE+kVT&#x3D;600mV+23×0.26mV&#x3D;1.2V. k&#x3D;m(R2&#x2F;R1)lnN, m&#x3D;I2&#x2F;I1,The region of lnN is usually between 2 and 3.</p>
+<p>11.Such as the figure 1 is Cascode CM(Current Mirror) Biased BGR.<img src="/.com//cascode-CM-BGR.png" alt="figure1"></p>
+<p>12.Such as the figure 2 is OP Biased BGR. The Vref can not directly to connect the load or series resistors，the reason is diffluence and induce the reference changed with Temperature. Such as figure 3 ,can use the Voltage Follower(buffer) to solve the problem. In the figure 2 circuit, M3 and M4 is not match, we can add R2 between M4 and x point. Two branch current is equal.<img src="/.com//op-based-BGR.png" alt="figure2"><img src="/.com//vref-1.png" alt="figure3"></p>
+<p>13.If the system have positive and negative feedback, the main must be negative feedback to ensure the stability of system.</p>
+<p>14.Current model:(VBE+kVT)×Ra&#x2F;Rb &#x3D;(VBE&#x2F;Rb+(kVT)&#x2F;Rb)×Ra.we can add resistor between x point and ground and between y point and ground.</p>
+<p>15.Advantage of CM: the Vref is free(the value can control, small and big, do not need buffer). For application, the CM is better than VM. For function, the VM is better than CM.(PSRR: VM&gt;CM, )</p>
+<p>16.We can use Subthreshold region to approximate VBE.</p>
+<p>17.Such as Figure 2, If the input of OP is not virtual short, have a voltage difference of noninverting and inverting input terminal, we have two measures. vos→0 and mR2&#x2F;R1 decrease → lnN increase → N increase → I2&#x2F;I1&#x3D;1:P.Increase the area ratio of BJT has low benefits and high costs. Precision</p>
+<p>18.High resistor drive , Drain drive or Current mirror drive can be used to drive capacitance or RL→infinite and not drive load of resistor.</p>
+<p>19.Such as figure 4 is Current reference(Typical V-I Converter). The resistor R need use 0 temperature ratio the resistor of different type temperature ratio overlying to offset. We can adjust the temperature ratio of Vref to offset the temperature ratio of resistor.<img src="/.com//current-refrence.png" alt="figure4"></p>
 
       
 
@@ -257,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/03/15/Analog-IC-Learning-Notes-of-Part-One-Devices-And-Bias/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/03/20/Analog-IC-Learning-Notes-of-Part-One-BGR/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -271,18 +279,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/03/20/Analog-IC-Learning-Notes-of-Part-One-BGR/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Band_Gap_Reference
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/09/23/silvaco%E9%83%A8%E5%88%86%E6%93%8D%E4%BD%9C%E5%A4%87%E6%B3%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">silvaco部分操作备注</div>
+    <a href="/2023/03/15/Analog-IC-Learning-Notes-of-Part-One-Devices-And-Bias/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Analog_IC_Learning_Notes_of_Part_One_Devices_And_Bias</div>
       <i class="icon-circle-right"></i>
     </a>
   
